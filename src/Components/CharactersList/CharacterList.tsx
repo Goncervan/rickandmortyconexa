@@ -1,22 +1,26 @@
-import { Button, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import { useCharacterListController } from "./CharacterList.controller";
 import { Pagination } from "../Pagination/Pagination";
+import { CharacterCard } from "../CharacterCard/CharacterCard";
 
 export const CharacterList = ({
   handleSelectCharacter,
 }: {
-  handleSelectCharacter: (value: string) => void;
+  handleSelectCharacter: (id: string, name: string) => void;
 }) => {
   const controller = useCharacterListController();
   return (
     <VStack>
       {controller.characters?.results.map((character) => (
-        <Button
-          onClick={() => handleSelectCharacter(character.name)}
+        <CharacterCard 
           key={character.id}
-        >
-          {character.name} {character.id}
-        </Button>
+          image={character.image}
+          name={character.name}
+          status={character.status}
+          specie={character.species}
+          id={character.id.toString()}
+          handleSelectCharacter={handleSelectCharacter}
+        />
       ))}
       <Pagination
         currentPage={controller.currentPage}
