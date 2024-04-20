@@ -10,9 +10,6 @@ export const EpisodesList = ({ episodes }: { episodes: string[] }) => {
       controller.handleGetEpisodes(episodes);
     }
   }, [episodes]);
-    
-    console.log(controller.episodesData);
-    
 
   return (
     <VStack border='1px solid' borderColor='gray.200'>
