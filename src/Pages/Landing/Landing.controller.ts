@@ -35,6 +35,7 @@ export const useLandingController = () => {
     firstCharacterEpisodesLoading,
     getFirstCharacterEpisodes,
   ] = useAsync(CharactersService.getCharacterEpisodes, {
+    defaultValue: [],
     onSuccess: () => {
       console.log("success");
     },
@@ -48,6 +49,7 @@ export const useLandingController = () => {
     secondCharacterEpisodesLoading,
     getSecondCharacterEpisodes,
   ] = useAsync(CharactersService.getCharacterEpisodes, {
+    defaultValue: [],
     onSuccess: () => {
       console.log("success");
     },
