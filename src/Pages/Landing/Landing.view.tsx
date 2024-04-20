@@ -1,23 +1,65 @@
-import { Divider, HStack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Text, VStack } from "@chakra-ui/react";
 import { CharacterList } from "../../Components/CharactersList/CharacterList";
 import { useLandingController } from "./Landing.controller";
 import { EpisodesList } from "../../Components/EpisodesList/EpisodesList";
 
 export const Landing = () => {
   const controller = useLandingController();
-  
+
   return (
-    <VStack minH={"100vh"} w={"100vw"} bgColor={"red.200"}>
-      <HStack>
-        <Text>Selected Characters:</Text>
-        <Text>{controller.selectedCharacters[1].name}</Text>
-        <Text>{controller.selectedCharacters[2].name}</Text>
-        <CharacterList handleSelectCharacter={controller.handleSelectFirstCharacter}/>
-        <CharacterList handleSelectCharacter={controller.handleSelectSecondCharacter} />
+    <VStack
+      h="100vh"
+      w="100vw"
+      py={10}
+      overflowX="hidden"
+      bgColor="gray.900"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <HStack
+        h="50%"
+        overflowY="hidden"
+        w="full"
+        justifyContent="center"
+        alignItems="center"
+        gap={0}
+
+      >
+        <CharacterList
+          handleSelectCharacter={controller.handleSelectFirstCharacter}
+          selectedCharacterName={controller.selectedCharacters[1].name}
+        />
+        <CharacterList
+          handleSelectCharacter={controller.handleSelectSecondCharacter}
+          selectedCharacterName={controller.selectedCharacters[2].name}
+        />
       </HStack>
-      <EpisodesList episodes={controller.firstCharacterEpisodes || []}/>
-      <EpisodesList episodes={controller.sharedEpisodes || []}/>
-      <EpisodesList episodes={controller.secondCharacterEpisodes || []}/>
+      <HStack
+        h="50%"
+        w="full"
+        overflowY="hidden"
+        justifyContent="center"
+        alignItems="center"
+        gap={0}
+      >
+        <EpisodesList
+          title={
+            controller.selectedCharacters[1].name.length > 0
+              ? `Episodios de ${controller.selectedCharacters[1].name}`
+              : "Selecciona un personaje"
+          }
+          episodes={controller.firstCharacterEpisodes || []}
+        />
+        <EpisodesList
+         title={"Episodios compartidos"} episodes={controller.sharedEpisodes || []} />
+        <EpisodesList
+         title={
+          controller.selectedCharacters[2].name.length > 0
+            ? `Episodios de ${controller.selectedCharacters[2].name}`
+            : "Selecciona un personaje"
+        }
+        episodes={controller.secondCharacterEpisodes || []} />
+      </HStack>
     </VStack>
   );
 };
