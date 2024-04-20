@@ -42,7 +42,12 @@ export const useCharacterListController = () => {
     characters,
     charactersError,
     loadingCharacters,
+
+    // pagination
+    currentPage,
     handleNextPage,
+    nextPage,
     handlePrevPage,
+    prevPage,
   };
 };
