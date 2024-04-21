@@ -1,4 +1,6 @@
-import { Button, HStack, Text } from "@chakra-ui/react";
+import { Button, HStack, IconButton, Text } from "@chakra-ui/react";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+
 export const Pagination = ({
   currentPage,
   handleNextPage,
@@ -14,13 +16,23 @@ export const Pagination = ({
 }) => {
   return (
     <HStack>
-      <Button isDisabled={!prevPage} onClick={handlePrevPage}>
-        Prev
-      </Button>
-      <Text w="2ch" textAlign="center" color="white">{currentPage}</Text>
-      <Button isDisabled={!nextPage} onClick={handleNextPage}>
-        Next
-      </Button>
+      <IconButton
+        backdropFilter={"blur(10px)"}
+        isDisabled={!prevPage}
+        onClick={handlePrevPage}
+        icon={<IoIosArrowBack />}
+        aria-label="Previous"
+      />
+      <Text w="2ch" textAlign="center" color="white">
+        {currentPage}
+      </Text>
+      <IconButton
+        backdropFilter={"blur(10px)"}
+        isDisabled={!nextPage}
+        onClick={handleNextPage}
+        icon={<IoIosArrowForward />}
+        aria-label="Next"
+      />
     </HStack>
   );
 };

@@ -12,9 +12,8 @@ export const CharacterList = ({
 }) => {
   const controller = useCharacterListController();
   return (
-    <VStack w="50%" h="100%" py={5}>
+    <VStack w="50%" h="100%" pt={5}>
       <Text
-        mb={4}
         fontSize="x-large"
         fontWeight="semibold"
         color="white"
@@ -23,7 +22,7 @@ export const CharacterList = ({
           ? `Seleccionado: ${selectedCharacterName}`
           : "Selecciona un personaje"}
       </Text>
-      <Grid w="full" templateColumns="repeat(3, 1fr)" gap={4} overflowY="scroll" p={10}>
+      <Grid w="full" templateColumns="repeat(2, 1fr)" gap={4} overflowY="scroll" px={6} py={4}>
         {controller.characters?.results.map((character) => (
           <CharacterCard
             key={character.id}
