@@ -10,7 +10,8 @@ export const Landing = () => {
     <VStack
       h="100vh"
       w="100vw"
-      py={5}
+      pt={5}
+      pb={0}
       overflowX="hidden"
       bgColor="gray.900"
       justifyContent="center"
@@ -40,11 +41,11 @@ export const Landing = () => {
       <HStack
         h="40%"
         w="full"
-        p={0}
+        p={2}
         overflowY="hidden"
-        justifyContent="center"
+        justifyContent="space-between"
         alignItems="center"
-        gap={0}
+        // gap={2}
       >
         <EpisodesList
           title={
