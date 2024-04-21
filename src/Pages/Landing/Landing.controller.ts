@@ -55,7 +55,7 @@ export const useLandingController = () => {
       1: { id, name },
     });
     if (id === "") {
-      clearFirstCharacterEpisodes(id);
+      clearFirstCharacterEpisodes();
       setSharedEpisodes([]);
     }
   };
@@ -65,7 +65,7 @@ export const useLandingController = () => {
       2: { id, name },
     });
     if (id === "") {
-      clearSecondCharacterEpisodes(id);
+      clearSecondCharacterEpisodes();
       setSharedEpisodes([]);
     }
   };
