@@ -1,4 +1,4 @@
-import { HStack, Text, VStack } from "@chakra-ui/react";
+import { HStack, VStack } from "@chakra-ui/react";
 import { CharacterList } from "../../Components/CharactersList/CharacterList";
 import { useLandingController } from "./Landing.controller";
 import { EpisodesList } from "../../Components/EpisodesList/EpisodesList";
