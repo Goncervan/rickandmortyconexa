@@ -64,7 +64,7 @@ export const CharacterCard = ({
           >
             {name}
           </Text>
-          <VStack gap={0} w='full' justifyContent='flex-start' alignItems='flex-start'>
+          <HStack gap={2} w='full' justifyContent='flex-start' alignItems='flex-start'>
             {/* <HStack alignItems='center' justifyContent='center' gap={1}> */}
             <Badge colorScheme={status === "Alive" ? "green" : "red"} rounded='md' variant='solid' display='flex' alignItems='center' gap={1}>
               {status}
@@ -74,19 +74,15 @@ export const CharacterCard = ({
               ]
             }
             </Badge>
-          {/* </HStack> */}
-          <HStack alignItems='center' justifyContent='center' gap={1}>
-            
-            <Text color="gray.400" fontSize="medium">
+            <Badge colorScheme='gray' rounded='md' variant='solid' display='flex' alignItems='center' gap={1}>
               {specie}
-              </Text>
-              {
+            {
               CharactersRaceIcons[
-                specie as keyof typeof CharactersRaceIcons
+                status as keyof typeof CharactersRaceIcons
               ]
             }
+            </Badge>
             </HStack>
-          </VStack>
             
         </VStack>
       </HStack>

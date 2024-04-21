@@ -10,7 +10,7 @@ export const Landing = () => {
     <VStack
       h="100vh"
       w="100vw"
-    p={8}
+      p={8}
       overflowX="hidden"
       bgColor="#0D0E12"
       justifyContent="center"
@@ -25,14 +25,14 @@ export const Landing = () => {
         justifyContent="center"
         alignItems="center"
         bgColor="#13161B"
-        rounded='md'
+        rounded="md"
         gap={0}
       >
         <CharacterList
           handleSelectCharacter={controller.handleSelectFirstCharacter}
           selectedCharacterName={controller.selectedCharacters[1].name}
         />
-        <VStack w='1px' bgColor='gray.700' h='full'/>
+        <VStack w="1px" bgColor="gray.700" h="full" />
         <CharacterList
           handleSelectCharacter={controller.handleSelectSecondCharacter}
           selectedCharacterName={controller.selectedCharacters[2].name}
@@ -55,14 +55,18 @@ export const Landing = () => {
           episodes={controller.firstCharacterEpisodes || []}
         />
         <EpisodesList
-         title={"Episodios compartidos"} episodes={controller.sharedEpisodes || []} />
+          title={`${controller.sharedEpisodes.length} Episodio${controller.sharedEpisodes.length === 1 ? "" : "s"} Compartido${controller.sharedEpisodes.length === 1 ? "" : "s"}`}
+          episodes={controller.sharedEpisodes || []}
+          emptyMessage="No hay episodios compartidos"
+        />
         <EpisodesList
-         title={
-          controller.selectedCharacters[2].name.length > 0
-            ? `${controller.secondCharacterEpisodes?.length} Episodios de ${controller.selectedCharacters[2].name}`
-            : "Selecciona un personaje"
-        }
-        episodes={controller.secondCharacterEpisodes || []} />
+          title={
+            controller.selectedCharacters[2].name.length > 0
+              ? `${controller.secondCharacterEpisodes?.length} Episodio${controller.secondCharacterEpisodes?.length === 1 ? "" : "s"} de ${controller.selectedCharacters[2].name}`
+              : "Selecciona un personaje"
+          }
+          episodes={controller.secondCharacterEpisodes || []}
+        />
       </HStack>
     </VStack>
   );

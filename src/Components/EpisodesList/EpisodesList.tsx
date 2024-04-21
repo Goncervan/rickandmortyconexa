@@ -5,39 +5,55 @@ import { useEffect } from "react";
 export const EpisodesList = ({
   episodes,
   title,
+  emptyMessage,
 }: {
   episodes: string[];
   title: string;
+  emptyMessage?: string;
 }) => {
   const controller = useEpisodesListController();
 
   useEffect(() => {
-      controller.handleGetEpisodes(episodes);
+    controller.handleGetEpisodes(episodes);
   }, [episodes]);
 
   return (
     <VStack
-      h='full'
+      h="full"
       w="33%"
       border="1px solid"
       borderColor="gray.800"
-        bgColor="#13161B"
-
+      bgColor="#13161B"
       rounded="lg"
     >
-      <Text color="white"
-      p={2}  borderBottom='2px solid' fontWeight='semibold' borderColor='gray.600' w='full' textAlign='center'>{title}</Text>
+      <Text
+        color="white"
+        p={2}
+        borderBottom="1px solid"
+        fontWeight="semibold"
+        borderColor="gray.600"
+        w="full"
+        textAlign="center"
+      >
+        {title}
+      </Text>
       <VStack overflowY="scroll" h="full" w="full" gap={2} p={0}>
         {controller.episodesData?.length &&
           controller.episodesData?.map((episode) => (
             <>
-            <Text px={2} w="full" textAlign='left' color="white" key={episode.id}>
-              {episode.episode} - {episode.name} - {episode.air_date}
+              <Text
+                px={2}
+                w="full"
+                textAlign="left"
+                color="white"
+                key={episode.id}
+              >
+                {episode.episode} - {episode.name} - {episode.air_date}
               </Text>
-              <Divider/>
+              <Divider />
             </>
           ))}
-        
+        {episodes.length === 0 && emptyMessage && <Text>{emptyMessage}</Text>}
       </VStack>
     </VStack>
   );
