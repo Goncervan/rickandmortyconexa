@@ -12,7 +12,7 @@ export const CharacterList = ({
 }) => {
   const controller = useCharacterListController();
   return (
-    <VStack w="50%" h="100%" pt={5}>
+    <VStack w="50%" h="100%" pt={5} pb={1}>
       <Text
         fontSize="x-large"
         fontWeight="semibold"

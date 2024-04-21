@@ -7,6 +7,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
+import { CharactersRaceIcons, CharactersStatusesIcons } from "../../Utils/constants";
 
 export const CharacterCard = ({
   image,
@@ -60,9 +61,30 @@ export const CharacterCard = ({
           >
             {name}
           </Text>
-          <Text color="gray.400" fontSize="medium">
-            {status} - {specie}
-          </Text>
+          <VStack gap={0} w='full' justifyContent='flex-start' alignItems='flex-start'>
+          <HStack alignItems='center' justifyContent='center' gap={1}>
+            <Text color="gray.400" fontSize="medium">
+              {status}
+            </Text>
+            {
+              CharactersStatusesIcons[
+                status as keyof typeof CharactersStatusesIcons
+              ]
+            }
+          </HStack>
+          <HStack alignItems='center' justifyContent='center' gap={1}>
+            
+            <Text color="gray.400" fontSize="medium">
+              {specie}
+              </Text>
+              {
+              CharactersRaceIcons[
+                specie as keyof typeof CharactersRaceIcons
+              ]
+            }
+            </HStack>
+          </VStack>
+            
         </VStack>
       </HStack>
     </Fade>

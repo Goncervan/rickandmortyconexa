@@ -1,4 +1,4 @@
-import { Button, HStack, IconButton, Text } from "@chakra-ui/react";
+import { HStack, IconButton, Text } from "@chakra-ui/react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 export const Pagination = ({
