@@ -1,4 +1,4 @@
-import { Grid, Spinner, Text, VStack } from "@chakra-ui/react";
+import { Grid, Text, VStack } from "@chakra-ui/react";
 import { useCharacterListController } from "./CharacterList.controller";
 import { Pagination } from "../Pagination/Pagination";
 import { CharacterCard } from "../CharacterCard/CharacterCard";
