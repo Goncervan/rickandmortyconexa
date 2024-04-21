@@ -17,7 +17,7 @@ export const Pagination = ({
       <Button isDisabled={!prevPage} onClick={handlePrevPage}>
         Prev
       </Button>
-      <Text>{currentPage}</Text>
+      <Text w="2ch" textAlign="center" color="white">{currentPage}</Text>
       <Button isDisabled={!nextPage} onClick={handleNextPage}>
         Next
       </Button>
