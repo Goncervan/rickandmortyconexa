@@ -11,48 +11,64 @@ export const useLandingController = () => {
     2: { id: "", name: "" },
   });
 
+  const [sharedEpisodes, setSharedEpisodes] = useState<string[]>([]);
+
+  const [
+    firstCharacterEpisodes,
+    ,
+    ,
+    getFirstCharacterEpisodes,
+    ,
+    ,
+    clearFirstCharacterEpisodes,
+  ] = useAsync(CharactersService.getCharacterEpisodes, {
+    defaultValue: [],
+    onSuccess: () => {
+      console.log("success");
+    },
+    onError: () => {
+      console.log("error");
+    },
+  });
+  // data, error, loading, execute, refreshing, refresh, clear;
+  const [
+    secondCharacterEpisodes,
+    ,
+    ,
+    getSecondCharacterEpisodes,
+    ,
+    ,
+    clearSecondCharacterEpisodes,
+  ] = useAsync(CharactersService.getCharacterEpisodes, {
+    defaultValue: [],
+    onSuccess: () => {
+      console.log("success");
+    },
+    onError: () => {
+      console.log("error");
+    },
+  });
+
   const handleSelectFirstCharacter = (id: string, name: string) => {
     setSelectedCharacters({
       ...selectedCharacters,
       1: { id, name },
     });
+    if (id === "") {
+      clearFirstCharacterEpisodes();
+      setSharedEpisodes([]);
+    }
   };
   const handleSelectSecondCharacter = (id: string, name: string) => {
     setSelectedCharacters({
       ...selectedCharacters,
       2: { id, name },
     });
+    if (id === "") {
+      clearSecondCharacterEpisodes();
+      setSharedEpisodes([]);
+    }
   };
-  // ------------------
-  // -----Episodes-----
-  // ------------------
-
-  const [sharedEpisodes, setSharedEpisodes] = useState<string[]>([]);
-
-  const [firstCharacterEpisodes, , , getFirstCharacterEpisodes] = useAsync(
-    CharactersService.getCharacterEpisodes,
-    {
-      defaultValue: [],
-      onSuccess: () => {
-        console.log("success");
-      },
-      onError: () => {
-        console.log("error");
-      },
-    }
-  );
-  const [secondCharacterEpisodes, , , getSecondCharacterEpisodes] = useAsync(
-    CharactersService.getCharacterEpisodes,
-    {
-      defaultValue: [],
-      onSuccess: () => {
-        console.log("success");
-      },
-      onError: () => {
-        console.log("error");
-      },
-    }
-  );
 
   useEffect(() => {
     if (selectedCharacters[1].id !== "") {

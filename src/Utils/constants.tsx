@@ -6,13 +6,14 @@ import { FaPerson } from "react-icons/fa6";
 import { FaRobot } from "react-icons/fa6";
 import { FaDisease } from "react-icons/fa6";
 import { GiInsectJaws } from "react-icons/gi";
+import { FaPoop } from "react-icons/fa";
 
 export const API_URL = "https://rickandmortyapi.com/api";
 
 export const CharactersStatusesIcons = {
-  Dead: <GiDeadHead color="gray.400"/>,
-  Alive: <FaHeart color="gray.400"/>,
-  unknown: <MdOutlineQuestionMark color="gray.400"/>,
+  Dead: <GiDeadHead color="gray.400" />,
+  Alive: <FaHeart color="gray.400" />,
+  unknown: <MdOutlineQuestionMark color="gray.400" />,
 };
 export const CharactersRaceIcons = {
   Alien: <PiAlienBold color="gray.400" />,
@@ -22,4 +23,5 @@ export const CharactersRaceIcons = {
   Robot: <FaRobot color="gray.400" />,
   Disease: <FaDisease color="gray.400" />,
   Cronenberg: <GiInsectJaws color="gray.400" />,
+  Poopybutthole: <FaPoop color="gray.400" />,
 };

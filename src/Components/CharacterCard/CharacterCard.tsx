@@ -1,4 +1,5 @@
 import {
+  Badge,
   Fade,
   HStack,
   Image,
@@ -46,11 +47,13 @@ export const CharacterCard = ({
         w="1/3"
         cursor="pointer"
         rounded="xl"
-        backdropFilter={"blur(10px)"}
-        sx={{ boxShadow: "10px 10px 12px rgba(0,0,0,.6)" }}
+        bgColor={isSelected ? "gray.800" : "#1c1f25"}
+        border='1px solid'
+        borderColor={isSelected ? "gray.400" : "gray.600"}
+        sx={{ boxShadow: isSelected ? 'none'  : "10px 10px 12px rgba(0,0,0,.2)"}}
         onClick={onClick}
       >
-        <Image h={32} w={32} src={image} alt={name} roundedLeft="xl" />
+        <Image h={24} w={24} src={image} alt={name} roundedLeft="xl" />
         <VStack justifyContent="flex-start" alignItems="flex-start">
           <Text
             noOfLines={1}
@@ -61,29 +64,25 @@ export const CharacterCard = ({
           >
             {name}
           </Text>
-          <VStack gap={0} w='full' justifyContent='flex-start' alignItems='flex-start'>
-          <HStack alignItems='center' justifyContent='center' gap={1}>
-            <Text color="gray.400" fontSize="medium">
+          <HStack gap={2} w='full' justifyContent='flex-start' alignItems='flex-start'>
+            {/* <HStack alignItems='center' justifyContent='center' gap={1}> */}
+            <Badge colorScheme={status === "Alive" ? "green" : "red"} rounded='md' variant='solid' display='flex' alignItems='center' gap={1}>
               {status}
-            </Text>
             {
               CharactersStatusesIcons[
                 status as keyof typeof CharactersStatusesIcons
               ]
             }
-          </HStack>
-          <HStack alignItems='center' justifyContent='center' gap={1}>
-            
-            <Text color="gray.400" fontSize="medium">
+            </Badge>
+            <Badge colorScheme='gray' rounded='md' variant='solid' display='flex' alignItems='center' gap={1}>
               {specie}
-              </Text>
-              {
+            {
               CharactersRaceIcons[
-                specie as keyof typeof CharactersRaceIcons
+                status as keyof typeof CharactersRaceIcons
               ]
             }
+            </Badge>
             </HStack>
-          </VStack>
             
         </VStack>
       </HStack>
