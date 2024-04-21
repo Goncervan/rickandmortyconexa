@@ -3,9 +3,8 @@ import { useAsync } from "../../Utils/UseAsync";
 import { getEpisodeNumber } from "../../Utils/getEpisodeNumber";
 
 export const useEpisodesListController = () => {
-  const [episodesData, error, loading, getEpisodesData] = useAsync(
-    EpisodesService.getEpisodesData,
-    {
+  const [episodesData, error, loading, getEpisodesData, , , clearEpisodesData] =
+    useAsync(EpisodesService.getEpisodesData, {
       defaultValue: [],
       onSuccess: () => {
         console.log("success");
@@ -13,12 +12,11 @@ export const useEpisodesListController = () => {
       onError: () => {
         console.log("error");
       },
-    }
-  );
+    });
 
   const handleGetEpisodes = (episodes: string[]) => {
     if (episodes.length === 0) {
-      return;
+      clearEpisodesData();
     }
     const episodesNumbers = episodes
       .map((episode) => getEpisodeNumber(episode))

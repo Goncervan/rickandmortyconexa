@@ -12,9 +12,7 @@ export const EpisodesList = ({
   const controller = useEpisodesListController();
 
   useEffect(() => {
-    if (episodes.length > 0) {
       controller.handleGetEpisodes(episodes);
-    }
   }, [episodes]);
 
   return (
@@ -23,7 +21,8 @@ export const EpisodesList = ({
       w="33%"
       border="1px solid"
       borderColor="gray.800"
-      bgColor={"gray.900"}
+        bgColor="#13161B"
+
       rounded="lg"
     >
       <Text color="white"
@@ -33,11 +32,12 @@ export const EpisodesList = ({
           controller.episodesData?.map((episode) => (
             <>
             <Text px={2} w="full" textAlign='left' color="white" key={episode.id}>
-              {episode.id} - {episode.name} - {episode.air_date}
+              {episode.episode} - {episode.name} - {episode.air_date}
               </Text>
               <Divider/>
             </>
           ))}
+        
       </VStack>
     </VStack>
   );

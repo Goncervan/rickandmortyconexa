@@ -10,15 +10,13 @@ export const Landing = () => {
     <VStack
       h="100vh"
       w="100vw"
-      pt={5}
-      pb={0}
+    p={8}
       overflowX="hidden"
-      bgColor="gray.900"
+      bgColor="#0D0E12"
       justifyContent="center"
       alignItems="center"
-      bgImage={`url(https://i.pinimg.com/originals/0a/eb/52/0aeb52af3cb13c91c0aead5aba52480f.jpg)`}
       bgPosition={"bottom"}
-      gap={0}
+      gap={6}
     >
       <HStack
         h="60%"
@@ -26,13 +24,15 @@ export const Landing = () => {
         w="full"
         justifyContent="center"
         alignItems="center"
+        bgColor="#13161B"
+        rounded='md'
         gap={0}
-
       >
         <CharacterList
           handleSelectCharacter={controller.handleSelectFirstCharacter}
           selectedCharacterName={controller.selectedCharacters[1].name}
         />
+        <VStack w='1px' bgColor='gray.700' h='full'/>
         <CharacterList
           handleSelectCharacter={controller.handleSelectSecondCharacter}
           selectedCharacterName={controller.selectedCharacters[2].name}
@@ -41,7 +41,6 @@ export const Landing = () => {
       <HStack
         h="40%"
         w="full"
-        p={2}
         overflowY="hidden"
         justifyContent="space-between"
         alignItems="center"
@@ -50,7 +49,7 @@ export const Landing = () => {
         <EpisodesList
           title={
             controller.selectedCharacters[1].name.length > 0
-              ? `Episodios de ${controller.selectedCharacters[1].name}`
+              ? `${controller.firstCharacterEpisodes?.length} Episodios de ${controller.selectedCharacters[1].name}`
               : "Selecciona un personaje"
           }
           episodes={controller.firstCharacterEpisodes || []}
@@ -60,7 +59,7 @@ export const Landing = () => {
         <EpisodesList
          title={
           controller.selectedCharacters[2].name.length > 0
-            ? `Episodios de ${controller.selectedCharacters[2].name}`
+            ? `${controller.secondCharacterEpisodes?.length} Episodios de ${controller.selectedCharacters[2].name}`
             : "Selecciona un personaje"
         }
         episodes={controller.secondCharacterEpisodes || []} />

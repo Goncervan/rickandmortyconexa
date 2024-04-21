@@ -12,16 +12,16 @@ export const CharacterList = ({
 }) => {
   const controller = useCharacterListController();
   return (
-    <VStack w="50%" h="100%" pt={5} pb={1}>
+    <VStack w="50%" h="100%" pt={3} pb={2}>
       {selectedCharacterName !== "" ? (
-        <Text fontSize="x-large" fontWeight="semibold" color="white">
+        <Text px={8} w='full' textAlign='left' fontSize="medium" fontWeight="semibold" color="white">
           Seleccionado:{" "}
           <Text textDecor="underline" display="inline">
             {selectedCharacterName}
           </Text>
         </Text>
       ) : (
-        <Text fontSize="x-large" fontWeight="semibold" color="white">
+        <Text px={8} w='full' textAlign='left' fontSize="medium" fontWeight="semibold" color="white">
           Selecciona un personaje
         </Text>
       )}
@@ -33,7 +33,6 @@ export const CharacterList = ({
         px={6}
         py={4}
       >
-        {controller.loadingCharacters && <Spinner />}
         {controller.characters?.results.map((character) => (
           <CharacterCard
             key={character.id}

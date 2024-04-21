@@ -10,9 +10,9 @@ import { GiInsectJaws } from "react-icons/gi";
 export const API_URL = "https://rickandmortyapi.com/api";
 
 export const CharactersStatusesIcons = {
-  Dead: <GiDeadHead color="gray.400"/>,
-  Alive: <FaHeart color="gray.400"/>,
-  unknown: <MdOutlineQuestionMark color="gray.400"/>,
+  Dead: <GiDeadHead color="gray.400" />,
+  Alive: <FaHeart color="gray.400" />,
+  unknown: <MdOutlineQuestionMark color="gray.400" />,
 };
 export const CharactersRaceIcons = {
   Alien: <PiAlienBold color="gray.400" />,
