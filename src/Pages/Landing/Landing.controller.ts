@@ -29,34 +29,30 @@ export const useLandingController = () => {
 
   const [sharedEpisodes, setSharedEpisodes] = useState<string[]>([]);
 
-  const [
-    firstCharacterEpisodes,
-    firstCharacterEpisodesError,
-    firstCharacterEpisodesLoading,
-    getFirstCharacterEpisodes,
-  ] = useAsync(CharactersService.getCharacterEpisodes, {
-    defaultValue: [],
-    onSuccess: () => {
-      console.log("success");
-    },
-    onError: () => {
-      console.log("error");
-    },
-  });
-  const [
-    secondCharacterEpisodes,
-    secondCharacterEpisodesError,
-    secondCharacterEpisodesLoading,
-    getSecondCharacterEpisodes,
-  ] = useAsync(CharactersService.getCharacterEpisodes, {
-    defaultValue: [],
-    onSuccess: () => {
-      console.log("success");
-    },
-    onError: () => {
-      console.log("error");
-    },
-  });
+  const [firstCharacterEpisodes, , , getFirstCharacterEpisodes] = useAsync(
+    CharactersService.getCharacterEpisodes,
+    {
+      defaultValue: [],
+      onSuccess: () => {
+        console.log("success");
+      },
+      onError: () => {
+        console.log("error");
+      },
+    }
+  );
+  const [secondCharacterEpisodes, , , getSecondCharacterEpisodes] = useAsync(
+    CharactersService.getCharacterEpisodes,
+    {
+      defaultValue: [],
+      onSuccess: () => {
+        console.log("success");
+      },
+      onError: () => {
+        console.log("error");
+      },
+    }
+  );
 
   useEffect(() => {
     if (selectedCharacters[1].id !== "") {

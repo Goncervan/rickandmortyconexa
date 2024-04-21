@@ -10,14 +10,18 @@ export const Landing = () => {
     <VStack
       h="100vh"
       w="100vw"
-      py={10}
+      pt={5}
+      pb={0}
       overflowX="hidden"
       bgColor="gray.900"
       justifyContent="center"
       alignItems="center"
+      bgImage={`url(https://i.pinimg.com/originals/0a/eb/52/0aeb52af3cb13c91c0aead5aba52480f.jpg)`}
+      bgPosition={"bottom"}
+      gap={0}
     >
       <HStack
-        h="50%"
+        h="60%"
         overflowY="hidden"
         w="full"
         justifyContent="center"
@@ -35,12 +39,13 @@ export const Landing = () => {
         />
       </HStack>
       <HStack
-        h="50%"
+        h="40%"
         w="full"
+        p={2}
         overflowY="hidden"
-        justifyContent="center"
+        justifyContent="space-between"
         alignItems="center"
-        gap={0}
+        // gap={2}
       >
         <EpisodesList
           title={
