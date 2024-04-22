@@ -53,7 +53,7 @@ export const EpisodesList = ({
               <Divider />
             </>
           ))}
-        {episodes.length === 0 && emptyMessage && <Text>{emptyMessage}</Text>}
+        {episodes.length === 0 && emptyMessage && <Text color='white'>{emptyMessage}</Text>}
       </VStack>
     </VStack>
   );
