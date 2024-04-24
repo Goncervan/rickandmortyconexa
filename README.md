@@ -3,7 +3,11 @@
 
 Prueba técnica Programador Frontend Ssr React/Next 
 
+## Web
 
+La prueba técnica se encuentra deployada en vercel!
+
+La url es https://rickandmortyconexa-amm5m4zs3-goncervans-projects.vercel.app/
 
 
 ## Instalación
